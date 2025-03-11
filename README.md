@@ -152,11 +152,6 @@ We welcome contributions to HealWell! Please follow these steps:
 ---
 
 ## 📞 **Contact**
-
+Maintained by [JAY PANDYA](https://github.com/1JAYPANDYA1). Feel free to reach out to me through GitHub or email for any queries.
 
 ---
-
-## 🙏 **Acknowledgments**
-- Thanks to all contributors who have helped make HealWell possible
-- Special thanks to the open-source community for the amazing technologies that power this platform
-- Inspired by the growing need for accessible healthcare worldwide
