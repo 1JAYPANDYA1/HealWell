@@ -80,7 +80,7 @@ const DoctorSignUp_Form = () => {
     else if (fields.password.length < 8)
       errors.push("Password must be at least 8 characters");
     else if (
-      !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
+      !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$!%*?&])[A-Za-z\d@$#!%*?&]{8,}$/.test(
         fields.password
       )
     ) {

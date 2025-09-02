@@ -1,21 +1,27 @@
 import { PrismaClient } from '@prisma/client';
 import jwt from 'jsonwebtoken';
 import { Server as SocketIOServer } from 'socket.io';
+import cookie from "cookie";
+
 const prisma = new PrismaClient();
 
 const verifySocketToken = (socket, next) => {
     try {
-        const token = socket.handshake.headers.cookie
-            ? socket.handshake.headers.cookie.split('=')[1]
-            : null;
+        const cookies = socket.handshake.headers.cookie 
+            ? cookie.parse(socket.handshake.headers.cookie) 
+            : {};
+        
+        const token = cookies.token; 
+        
         if (!token) {
             return next(new Error('Authentication error: Token missing'));
         }
+
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         socket.user = decoded;
         next();
     } catch (error) {
-        console.log("in error : ", error)
+        console.error("JWT error:", error.message);
         next(new Error('Authentication error: Invalid token'));
     }
 };
